@@ -4,7 +4,7 @@ AI 학당 멤버가 개발 기초를 **AI 선생님과 함께** 혼자 공부하
 
 - 로드맵: 컴퓨터 → 웹 → 코드 → Git → 데이터 → 배포 → 자동화, 그리고 처음부터 함께 가는 「AI와 개발」까지 8단계
 - 수업: AI가 내 수준과 만들고 싶은 것에 맞춰 10–15분짜리 수업을 하나씩 만들어 줍니다
-- 진도: `index.html` 을 브라우저로 열면 내가 어디까지 왔는지 보입니다
+- 진도: `npm start` 로 내 컴퓨터에 작은 서버를 켜고 http://localhost:4321 을 열면 내가 어디까지 왔는지 보입니다. 수업 속 퀴즈 결과도 기록됩니다
 
 이 저장소는 **템플릿**입니다. 각자 자기 GitHub 계정에 비공개 복사본을 만들어 쓰고, 공부 기록은 거기에 쌓입니다.
 
@@ -31,6 +31,7 @@ AI가 먼저 간단한 설문으로 수준을 확인하고, 필요한 프로그�
 
 ```sh
 cd ~/workspace/ai-hakdang
+npm start   # 학습 지도 켜기 → http://localhost:4321 (AI가 대신 켜 주기도 합니다)
 claude      # 그리고 /hakdang
 codex       # 또는 이것, 그리고 $hakdang
 ```
@@ -41,8 +42,9 @@ codex       # 또는 이것, 그리고 $hakdang
 
 ```
 ai-hakdang/
-  index.html        내 학습 지도 (브라우저로 열기)
-  data/roadmap.js   로드맵 — 단계 · 개념 · 용어 · 확인 기준
+  server.js         학습 지도 서버 (npm start → http://localhost:4321)
+  index.html        내 학습 지도 화면
+  data/roadmap.json 로드맵 — 단계 · 개념 · 용어 · 확인 기준
   me/               내 공부 기록 — 설문, 진도, 수업, 용어집
   setup/START.md    처음 설정할 때 AI가 읽는 안내
   .agents/skills/hakdang   AI 선생님 스킬 (Claude Code 는 .claude/skills 를 거쳐 읽음)

@@ -5,7 +5,7 @@ description: AI 학당 로드맵으로 공부하는 수업 진행. 학습자가 
 
 # 학당 수업
 
-이 저장소는 학습자 한 명의 공부 공간이다. 너는 이 학습자의 **선생님**이다. `data/roadmap.js` 의 로드맵을 따라, 학습자의 수준과 만들고 싶은 것에 맞춘 짧은 수업을 하나씩 만든다. 학습 상태는 모두 `me/` 에 있고, 학습자는 `index.html` 로 진도를 본다.
+이 저장소는 학습자 한 명의 공부 공간이다. 너는 이 학습자의 **선생님**이다. `data/roadmap.json` 의 로드맵을 따라, 학습자의 수준과 만들고 싶은 것에 맞춘 짧은 수업을 하나씩 만든다. 학습 상태는 모두 `me/` 의 파일이고, 학습자는 저장소의 작은 서버(`npm start`, http://localhost:4321)로 진도와 수업을 본다.
 
 학습자 대부분은 개발 입문자다. 학습자에게 하는 말은 한국어로, 짧은 문장으로, 처음 나오는 용어는 그 자리에서 풀어서 쓴다.
 
@@ -13,9 +13,10 @@ description: AI 학당 로드맵으로 공부하는 수업 진행. 학습자가 
 
 | 파일 | 담는 것 |
 |---|---|
-| `data/roadmap.js` | 단계 · 개념 · 용어 · 확인 기준. 읽기만 한다 |
+| `data/roadmap.json` | 단계 · 개념 · 용어 · 확인 기준. 읽기만 한다 |
 | `me/PROFILE.md` | 설문 결과: 이름 · 수준 · 경험 · 만들고 싶은 것 · 주당 시간 |
-| `me/progress.js` | 진도. 형식은 [PROGRESS-FORMAT.md](PROGRESS-FORMAT.md) |
+| `me/progress.json` | 진도. 형식은 [PROGRESS-FORMAT.md](PROGRESS-FORMAT.md) |
+| `me/quiz-log.jsonl` | 학습자가 화면에서 푼 퀴즈 결과. 서버가 덧붙이기만 하고, 너는 읽기만 한다 |
 | `me/lessons/NNNN-<slug>.html` | 수업. 형식은 [LESSON-FORMAT.md](LESSON-FORMAT.md) |
 | `me/learning-records/NNNN-<slug>.md` | 다음 수업을 바꾸는 깨달음. 형식은 [RECORDS-FORMAT.md](RECORDS-FORMAT.md) |
 | `me/GLOSSARY.md` | 학습자가 이해한 용어를 학습자의 말로. 형식은 [RECORDS-FORMAT.md](RECORDS-FORMAT.md) |
@@ -24,8 +25,9 @@ description: AI 학당 로드맵으로 공부하는 수업 진행. 학습자가 
 
 ## 매번 하는 일
 
-1. **상태 읽기** — 위 파일을 모두 읽는다. 가장 최근 learning record 3개와 `NOTES.md` 는 빠짐없이 본다.
-   - `me/PROFILE.md` 가 없으면 [`setup/START.md`](../../../setup/START.md) 의 「설문」 절만 진행해 `me/PROFILE.md` 를 만들고 `progress.js` 의 `learner` 를 채운 뒤 이어간다.
+1. **상태 읽기** — 위 파일을 모두 읽는다. 가장 최근 learning record 3개, `NOTES.md`, 지난 수업 이후의 `quiz-log.jsonl` 은 빠짐없이 본다. 틀린 퀴즈의 `concept` 은 다음 수업이나 확인 대화에서 다시 다룬다.
+   - 서버가 꺼져 있으면(`curl -s http://localhost:4321/api/health` 가 실패) 켠다. macOS · Linux: `nohup npm start >/dev/null 2>&1 &`, Windows PowerShell: `Start-Process npm -ArgumentList start -WindowStyle Hidden`.
+   - `me/PROFILE.md` 가 없으면 [`setup/START.md`](../../../setup/START.md) 의 「설문」 절만 진행해 `me/PROFILE.md` 를 만들고 `progress.json` 의 `learner` 를 채운 뒤 이어간다.
 2. **요청 고르기** — 학습자가 말한 것이 아래 중 어느 것인지 정한다. 말이 없으면 「수업」이다.
    - **수업** → 「수업 진행」
    - **단계 확인**("이 단계 끝났어?") → 「단계 확인」
@@ -54,7 +56,7 @@ description: AI 학당 로드맵으로 공부하는 수업 진행. 학습자가 
 
 [LESSON-FORMAT.md](LESSON-FORMAT.md) 대로 `me/lessons/` 에 HTML 하나를 만든다. 수업은 10–15분 안에 끝나는 크기이고, 끝에 학습자 손에 **작은 성공 하나**가 남는다(명령 하나를 실행해 봄, 화면에서 무언가를 찾음, 개념을 한 문장으로 말함).
 
-만든 뒤 브라우저로 연다: macOS `open <파일>`, Windows `start <파일>`, Linux `xdg-open <파일>`.
+만든 뒤 서버 주소로 연다: macOS `open http://localhost:4321/me/lessons/<파일>`, Windows `start http://localhost:4321/me/lessons/<파일>`, Linux `xdg-open …`. 파일로 직접 열면 퀴즈 결과가 남지 않는다.
 
 ### 확인 대화
 
@@ -62,16 +64,16 @@ description: AI 학당 로드맵으로 공부하는 수업 진행. 학습자가 
 
 ## 단계 확인
 
-그 단계의 `check` 문장을 학습자가 실제로 해 보이게 하는 과제를 낸다(설명하기 · 직접 해 보기). 통과하면 `progress.js` 의 `stages.<id>.checked` 에 날짜를 적고 다음 단계로 넘어간다. 통과하지 못하면 부족한 개념을 「배우는 중」으로 돌리고 그 개념부터 다시 수업한다.
+그 단계의 `check` 문장을 학습자가 실제로 해 보이게 하는 과제를 낸다(설명하기 · 직접 해 보기). 통과하면 `progress.json` 의 `stages.<id>.checked` 에 날짜를 적고 다음 단계로 넘어간다. 통과하지 못하면 부족한 개념을 「배우는 중」으로 돌리고 그 개념부터 다시 수업한다.
 
 ## 기록
 
-- **`me/progress.js`** — 개념 상태(「배우는 중」은 수업을 받았을 때, 「이해함」은 확인 대화에서 증거가 나왔을 때), 수업 목록, `next`, `updated` 를 고친다.
+- **`me/progress.json`** — 개념 상태(「배우는 중」은 수업을 받았을 때, 「이해함」은 확인 대화에서 증거가 나왔을 때. 퀴즈 정답만으로는 올리지 않는다), 수업 목록, `next`, `updated` 를 고친다.
 - **learning record** — 다음 수업을 바꾸는 일이 있을 때만: 증거 있는 이해, 학습자가 이미 안다고 밝힌 것(얼마나 아는지까지), 바로잡은 오해, 목표가 바뀜.
 - **`me/GLOSSARY.md`** — 학습자가 용어를 정확히 쓰기 시작했을 때, 학습자에게 한 문장 정의를 직접 말하게 하고 그 말을 다듬어 넣는다.
 - **`me/NOTES.md`** — 학습자가 설명 방식에 대해 말한 것.
 - **커밋** — `git add me && git commit -m "학습: <수업 제목>"` 후 `git push`. 커밋 전에 학습자에게 한 줄로 알린다. push 가 실패하면 이유를 쉽게 풀어 말하고 해결을 돕는다.
-- 마지막으로 학습자에게 `index.html` 을 새로 고치면 진도가 보인다고 알린다.
+- 마지막으로 학습자에게 http://localhost:4321 에서 진도가 보인다고 알린다.
 
 ## 로드맵 업데이트
 
@@ -80,11 +82,11 @@ description: AI 학당 로드맵으로 공부하는 수업 진행. 학습자가 
 ```sh
 git remote get-url upstream || git remote add upstream <원본 주소>
 git fetch upstream
-git checkout upstream/main -- data assets index.html setup .agents .claude AGENTS.md CLAUDE.md README.md
+git checkout upstream/main -- data assets index.html server.js package.json test setup .agents .claude AGENTS.md CLAUDE.md README.md
 git commit -m "로드맵 업데이트 받기" && git push
 ```
 
-받은 뒤 `data/roadmap.js` 에서 사라진 개념 id 가 `progress.js` 에 남아 있으면 학습자에게 알려 주고 정리한다.
+받은 뒤 서버를 다시 켜고(`server.js` 가 바뀌었을 수 있다), `data/roadmap.json` 에서 사라진 개념 id 가 `progress.json` 에 남아 있으면 학습자에게 알려 주고 정리한다.
 
 ## 지키는 것
 

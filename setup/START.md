@@ -41,6 +41,7 @@
 | 무엇 | 확인 | 설치 |
 |---|---|---|
 | Git | `git --version` | macOS: `xcode-select --install` (창이 뜨면 학습자가 '설치'를 누른다) · Windows: `winget install --id Git.Git -e` |
+| Node.js | `node --version` (18 이상) | macOS: Homebrew 가 있으면 `brew install node`, 없으면 https://nodejs.org 에서 LTS 설치 파일 · Windows: `winget install --id OpenJS.NodeJS.LTS -e` |
 | GitHub CLI | `gh --version` | macOS: Homebrew 가 있으면 `brew install gh`, 없으면 https://cli.github.com 에서 내려받기 · Windows: `winget install --id GitHub.cli -e` |
 | GitHub 계정 | 학습자에게 묻는다 | 없으면 https://github.com/signup 에서 만들게 하고 기다린다 |
 
@@ -83,14 +84,14 @@ Windows 에서 설치 직후 명령을 못 찾으면 터미널을 새로 열어�
    1. … 
    ```
 
-5. `me/progress.js` 의 `learner` 를 채우고 `updated` 에 오늘 날짜를 넣는다(형식은 `.agents/skills/hakdang/PROGRESS-FORMAT.md`). `next` 에 시작 단계의 첫 개념을 넣는다.
+5. `me/progress.json` 의 `learner` 를 채우고 `updated` 에 오늘 날짜를 넣는다(형식은 `.agents/skills/hakdang/PROGRESS-FORMAT.md`). `next` 에 시작 단계의 첫 개념을 넣는다.
 6. `git add me && git commit -m "시작: 설문 결과" && git push`
 
 ## 5. 마무리 안내
 
 학습자에게 아래를 그대로 알려 준다(경로와 명령은 학습자 운영체제에 맞춰서):
 
-1. 브라우저로 `ai-hakdang/index.html` 을 열어 보세요. 내 학습 지도가 보입니다. (지금 바로 `open` · `start` 로 열어 준다)
+1. 내 학습 지도는 이 폴더의 작은 서버로 봅니다. 공부할 때 터미널에서 `npm start` 를 켜 두고 http://localhost:4321 을 여세요. (지금 바로 서버를 켜고 브라우저로 열어 준다. 서버는 내 컴퓨터 안에서만 열리고 다른 사람은 볼 수 없다고 알려 준다)
 2. 공부할 때는 **`ai-hakdang` 폴더에서** AI를 엽니다.
    - Claude Code: 터미널에서 `cd ~/workspace/ai-hakdang` 후 `claude` → `/hakdang`
    - Codex: `cd ~/workspace/ai-hakdang` 후 `codex` → `$hakdang`

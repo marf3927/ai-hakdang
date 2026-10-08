@@ -7,7 +7,7 @@
 1. **왜 지금** — 학습자의 「만들고 싶은 것」과 이 개념이 어떻게 이어지는지 2–3문장.
 2. **개념** — 꼭 필요한 만큼만. 그림이 도움 되면 간단한 SVG 나 표. 주장마다 출처 링크.
 3. **해 보기** — 학습자가 자기 컴퓨터에서 직접 하는 단계 1–5개. 명령은 복사할 수 있게 `<pre><code>`. 무엇이 보이면 성공인지 적는다. 운영체제별로 다르면 macOS · Windows 를 나눠 쓴다.
-4. **퀴즈** — 2–4문제, `assets/quiz.js` 사용. 보기들은 길이와 말투를 맞춰서 모양으로 정답이 드러나지 않게 한다. 외운 것을 고르는 문제보다 상황에 적용하는 문제.
+4. **퀴즈** — 2–4문제, `assets/quiz.js` 사용. 문제마다 `data-id`(q1, q2 …)와 그 문제가 확인하는 개념 id 를 `data-concept` 에 단다 — 결과가 `me/quiz-log.jsonl` 에 그 개념으로 쌓인다. 보기들은 길이와 말투를 맞춰서 모양으로 정답이 드러나지 않게 한다. 외운 것을 고르는 문제보다 상황에 적용하는 문제.
 5. **원문 읽기** — 이 주제의 가장 좋은 1차 자료 하나(`class="source"`).
 6. **물어보기** — "모르는 부분은 AI에게 그대로 물어보세요. 예: '…'" 처럼 이 수업에 맞는 질문 예시 하나(`class="ask"`).
 7. 이전 · 다음 수업과 대시보드(`../../index.html`) 링크.
@@ -38,7 +38,7 @@
   <h2>해 보기</h2>
   <ol><li>…<pre><code>pwd</code></pre></li></ol>
 
-  <div class="quiz" data-answer="1" data-why="…">
+  <div class="quiz" data-id="q1" data-concept="s0-terminal" data-answer="1" data-why="…">
     <p>…</p>
     <div class="opts"><button>…</button><button>…</button><button>…</button></div>
   </div>

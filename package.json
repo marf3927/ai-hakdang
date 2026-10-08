@@ -1,0 +1,10 @@
+{
+  "name": "ai-hakdang",
+  "private": true,
+  "description": "AI 학당 — 내 학습 지도",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}
