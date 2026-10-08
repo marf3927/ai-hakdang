@@ -12,21 +12,21 @@ node -e "JSON.parse(require('fs').readFileSync('me/progress.json','utf8'))" && e
   "learner": {
     "name": "지민",
     "level": "입문",
-    "start": "s0",
+    "start": "b1",
     "goal": "모임 일정 알려 주는 디스코드 봇",
     "hours": "2–3시간"
   },
   "concepts": {
-    "s0-terminal": "learned",
-    "s0-path": "learning"
+    "b1-terminal": "learned",
+    "b1-project": "learning"
   },
   "stages": {
-    "s0": { "checked": "2026-10-12" }
+    "b1": { "checked": "2026-10-12" }
   },
   "lessons": [
-    { "n": 1, "title": "터미널과 첫 명령", "file": "me/lessons/0001-terminal.html", "date": "2026-10-10", "stage": "s0", "concepts": ["s0-terminal"] }
+    { "n": 1, "title": "터미널과 첫 명령", "file": "me/lessons/0001-terminal.html", "date": "2026-10-10", "stage": "b1", "concepts": ["b1-terminal"] }
   ],
-  "next": { "stage": "s0", "title": "경로: 파일의 주소", "why": "명령이 '파일 없음'으로 실패한 이유가 여기에 있다" }
+  "next": { "stage": "b1", "title": "프로젝트 · 폴더", "why": "AI가 파일을 어디에 만들었는지 알아야 결과를 확인할 수 있다" }
 }
 ```
 

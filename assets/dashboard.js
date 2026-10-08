@@ -78,15 +78,23 @@
         })
         .join("");
 
+    const tracks = Object.fromEntries((R.tracks || []).map((t) => [t.id, t]));
+    let lastTrack = null;
     $("path").innerHTML = R.stages
       .map((s) => {
+        let head = "";
+        if (s.track && s.track !== lastTrack) {
+          lastTrack = s.track;
+          const t = tracks[s.track] || { title: s.track };
+          head = `<li class="track-head"><h3>${esc(t.title)}</h3>${t.goal ? `<p>${esc(t.goal)}</p>` : ""}${t.graduation ? `<p class="muted small">졸업: ${esc(t.graduation)}</p>` : ""}</li>`;
+        }
         const total = s.concepts.length;
         const learned = s.concepts.filter((c) => stateOf(c.id) === "learned").length;
         const learning = s.concepts.filter((c) => stateOf(c.id) === "learning").length;
         const checked = ss[s.id] && ss[s.id].checked;
         const current = s.id === currentId;
         const cls = `${current ? " is-current" : ""}${checked ? " is-checked" : ""}`;
-        return `<li class="stop${cls}" id="${s.id}">
+        return `${head}<li class="stop${cls}" id="${s.id}">
           <span class="node" aria-hidden="true">${checked ? SPARK : s.id.slice(1)}</span>
           <details class="stage"${current ? " open" : ""}>
             <summary>
@@ -112,6 +120,9 @@
       })
       .join("");
 
+    $("electives").innerHTML = (R.electives || []).length
+      ? `<h2>선택 주제</h2><ul class="ledger">${R.electives.map((e) => `<li><b>${esc(e.title)}</b><span class="muted small">${esc(e.desc)}</span></li>`).join("")}</ul>`
+      : "";
     $("lessons").innerHTML = `<h2>내 수업</h2>${
       lessons.length
         ? `<ol class="ledger">${lessons

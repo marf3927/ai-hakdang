@@ -42,7 +42,7 @@
   <h2>해 보기</h2>
   <ol><li>…<pre><code>pwd</code></pre></li></ol>
 
-  <div class="quiz" data-id="q1" data-concept="s0-terminal" data-answer="1" data-why="…">
+  <div class="quiz" data-id="q1" data-concept="b1-terminal" data-answer="1" data-why="…">
     <p>…</p>
     <div class="opts"><button>…</button><button>…</button><button>…</button></div>
   </div>
