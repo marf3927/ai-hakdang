@@ -22,7 +22,7 @@ AI 학당 멤버가 개발 기초를 **AI 선생님과 함께** 혼자 공부하
 터미널을 열고 `claude` 또는 `codex` 를 실행한 뒤, 아래를 그대로 붙여 넣습니다.
 
 ```text
-AI 학당 공부를 시작하려고 해. https://raw.githubusercontent.com/{ORG}/ai-hakdang/main/setup/START.md 를 내려받아 읽고(curl 이나 웹 읽기 도구로), 거기 적힌 순서대로 나와 함께 진행해 줘. 나는 개발이 처음일 수 있으니 쉬운 말로 설명해 줘.
+AI 학당 공부를 시작하려고 해. https://raw.githubusercontent.com/ai-hakdang/ai-hakdang/main/setup/START.md 를 내려받아 읽고(curl 이나 웹 읽기 도구로), 거기 적힌 순서대로 나와 함께 진행해 줘. 나는 개발이 처음일 수 있으니 쉬운 말로 설명해 줘.
 ```
 
 AI가 먼저 간단한 설문으로 수준을 확인하고, 필요한 프로그램을 확인하고, `~/workspace/ai-hakdang` 에 내 공부 저장소를 만들어 줍니다. GitHub 로그인 한 번은 직접 해야 합니다 — AI가 방법을 알려 줍니다.

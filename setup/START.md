@@ -2,7 +2,7 @@
 
 이 파일은 학습자가 아니라 **AI가 읽고 진행하는 안내**다. 학습자는 README 의 시작 프롬프트를 붙여 넣었을 뿐이고, 개발이 처음일 수 있다. 각 단계에서 무엇을 왜 하는지 한두 문장으로 쉽게 말하고, 설치 · 로그인처럼 학습자 컴퓨터를 바꾸는 일은 허락을 받고 한다.
 
-- 원본 주소: `https://github.com/{ORG}/ai-hakdang`
+- 원본 주소: `https://github.com/ai-hakdang/ai-hakdang`
 - 만들 위치: 홈 폴더 아래 `workspace/ai-hakdang` (macOS · Linux `~/workspace/ai-hakdang`, Windows `%USERPROFILE%\workspace\ai-hakdang`)
 
 모든 단계가 끝나면 학습자의 GitHub 계정에 **비공개 저장소** `ai-hakdang` 이 생기고, 그 복사본이 위 위치에 있고, 설문 결과가 `me/PROFILE.md` 에 저장된 상태다.
@@ -61,11 +61,11 @@ Windows 에서 설치 직후 명령을 못 찾으면 터미널을 새로 열어�
 2. `workspace` 폴더 안에서 원본을 템플릿으로 삼아 비공개 저장소를 만들고 내려받는다:
 
    ```sh
-   gh repo create ai-hakdang --template {ORG}/ai-hakdang --private --clone
+   gh repo create ai-hakdang --template ai-hakdang/ai-hakdang --private --clone
    ```
 
    같은 이름이 이미 있으면 학습자에게 알리고, 그 저장소를 쓸지(`gh repo clone ai-hakdang`) 다른 이름으로 만들지 묻는다.
-3. `ai-hakdang` 폴더에서 원본을 `upstream` 으로 등록한다(나중에 로드맵 업데이트를 받는 통로): `git remote add upstream https://github.com/{ORG}/ai-hakdang.git`
+3. `ai-hakdang` 폴더에서 원본을 `upstream` 으로 등록한다(나중에 로드맵 업데이트를 받는 통로): `git remote add upstream https://github.com/ai-hakdang/ai-hakdang.git`
 4. 설문 결과를 `me/PROFILE.md` 로 저장한다:
 
    ```md
