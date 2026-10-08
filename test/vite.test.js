@@ -14,6 +14,7 @@ before(async () => {
   fs.mkdirSync(path.join(root, ".git"));
   fs.writeFileSync(path.join(root, ".git", "config"), "secret");
   fs.writeFileSync(path.join(root, ".env"), "SECRET=1");
+  fs.writeFileSync(path.join(root, ".npmrc"), "//registry/:_authToken=SECRET=1");
   fs.writeFileSync(path.join(root, "index.html"), "<h1>지도</h1>");
   fs.writeFileSync(path.join(root, "data", "roadmap.json"), JSON.stringify({ stages: [] }));
   fs.writeFileSync(path.join(root, "me", "lessons", "0001-a.html"), "<p>수업</p>");
@@ -42,7 +43,7 @@ test("화면과 수업 파일을 보여 준다", async () => {
 });
 
 test(".git · .env 같은 숨김 파일은 보여 주지 않는다", async () => {
-  for (const p of ["/.git/config", "/.env", "/@fs" + path.join(root, ".git", "config"), "/@fs" + path.join(root, ".env")]) {
+  for (const p of ["/.git/config", "/.env", "/.npmrc", "/@fs" + path.join(root, ".git", "config"), "/@fs" + path.join(root, ".env"), "/@fs" + path.join(root, ".npmrc"), "/%2e%6epmrc"]) {
     const res = await fetch(base + p);
     const text = await res.text();
     assert.ok(!text.includes("secret") && !text.includes("SECRET=1"), `${p} 가 노출됨 (${res.status})`);

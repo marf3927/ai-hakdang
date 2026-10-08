@@ -30,7 +30,7 @@
 | 기초 | 입문이 아니고 5 가 a · b | `b2` 웹 서비스의 구조 |
 | 경험 | 3 이 c · d 이고 4 가 c 이고 5 가 c | `b3` 데이터와 권한 — 앞 단계는 단계 확인으로 빠르게 넘긴다 |
 
-결과를 학습자에게 한 문단으로 알려 주고("○○님은 '입문'으로, 0단계부터 시작해요"), 다르게 하고 싶으면 바꿀 수 있다고 말한다. 설문 결과는 4단계에서 파일로 저장할 때까지 기억해 둔다.
+결과를 학습자에게 한 문단으로 알려 주고("○○님은 '입문'으로, 기본 1장부터 시작해요"), 다르게 하고 싶으면 바꿀 수 있다고 말한다. 설문 결과는 4단계에서 파일로 저장할 때까지 기억해 둔다.
 
 **입문** 수준이면 이후 단계에서 명령을 실행하기 전마다 "이 명령은 ~을 합니다"라고 한 줄씩 설명한다.
 
@@ -41,7 +41,7 @@
 | 무엇 | 확인 | 설치 |
 |---|---|---|
 | Git | `git --version` | macOS: `xcode-select --install` (창이 뜨면 학습자가 '설치'를 누른다) · Windows: `winget install --id Git.Git -e` |
-| Node.js | `node --version` (18 이상) | macOS: Homebrew 가 있으면 `brew install node`, 없으면 https://nodejs.org 에서 LTS 설치 파일 · Windows: `winget install --id OpenJS.NodeJS.LTS -e` |
+| Node.js | `node --version` (20.19 이상) | macOS: Homebrew 가 있으면 `brew install node`, 없으면 https://nodejs.org 에서 LTS 설치 파일 · Windows: `winget install --id OpenJS.NodeJS.LTS -e` |
 | GitHub CLI | `gh --version` | macOS: Homebrew 가 있으면 `brew install gh`, 없으면 https://cli.github.com 에서 내려받기 · Windows: `winget install --id GitHub.cli -e` |
 | GitHub 계정 | 학습자에게 묻는다 | 없으면 https://github.com/signup 에서 만들게 하고 기다린다 |
 

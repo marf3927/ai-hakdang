@@ -38,6 +38,7 @@
   --space-xl: 3rem;     --space-2xl: 4.5rem;
 
   --rule-hair: 1px; --rule-bold: 2px;
+  --indent-chapter: 56px; /* 차례 번호 칸(44px) + 간격(12px) — 펼친 장 내용을 제목 줄에 맞춘다 */
   --radius-sm: 4px; --radius-md: 8px;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);

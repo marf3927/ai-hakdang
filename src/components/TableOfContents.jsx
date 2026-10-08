@@ -5,7 +5,7 @@ const LABEL = { todo: "아직", learning: "배우는 중", learned: "이해함" 
 
 // 로드맵을 책의 차례처럼 보여 준다. 트랙 = 편, 단계 = 장. 지금 장만 펼쳐 두고 다른 장은 눌러서 연다.
 export default function TableOfContents({ data }) {
-  const { roadmap, stages, stateOf, currentStage } = data;
+  const { roadmap, stages, parts, stateOf, currentStage } = data;
   const [open, setOpen] = useState(() => new Set([currentStage]));
   const toggle = (id) => setOpen((s) => {
     const n = new Set(s);
@@ -13,10 +13,6 @@ export default function TableOfContents({ data }) {
     return n;
   });
   const done = new Set(stages.filter((s) => s.checked).map((s) => s.id));
-  const parts = (roadmap.tracks || [{ id: undefined, title: "" }]).map((t) => ({
-    track: t,
-    stages: stages.filter((s) => s.track === t.id),
-  }));
 
   return parts.map(({ track: t, stages: list }) => (
     <section className="part" key={t.id || "all"}>
@@ -37,7 +33,7 @@ export default function TableOfContents({ data }) {
             <Fragment key={s.id}>
               <li className={cls} id={s.id}>
                 <button type="button" className="toc-row" aria-expanded={isOpen} onClick={() => toggle(s.id)}>
-                  <span className="no">{s.id.slice(1)}</span>
+                  <span className="no">{s.no}</span>
                   <span className="t">{s.title}</span>
                   <span className="p">
                     {s.checked ? <><Spark /> 다 읽음 {s.checked}</> : `${s.learned}/${s.concepts.length}${s.id === currentStage ? " · 지금" : ""}`}

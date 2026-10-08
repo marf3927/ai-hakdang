@@ -8,7 +8,7 @@ export default function Margin({ data }) {
           <ol>
             {[...lessons].reverse().map((l) => (
               <li key={l.file}>
-                <a href={`/${l.file}`}>{l.title}</a>
+                <a href={`#/lesson/${l.file}`}>{l.title}</a>
                 <span className="muted">{l.date || ""} · {stageName(l.stage)}</span>
               </li>
             ))}

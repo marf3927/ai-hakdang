@@ -31,7 +31,7 @@
 <header class="night lesson-top">
   <div class="wrap">
     <img src="../../assets/brand/icon.png" alt="" width="40" height="40">
-    <p class="crumbs"><a href="../../index.html">내 학습 지도</a> · 0단계 컴퓨터와 작업 환경</p>
+    <p class="crumbs"><a href="../../index.html">내 학습 지도</a> · 기본 1장 내 컴퓨터의 작업 환경</p>
   </div>
 </header>
 <article class="lesson">

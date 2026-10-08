@@ -74,7 +74,7 @@ a:hover { text-decoration-thickness: 2px; }
 .toc > li.is-now .no, .toc > li.is-now .t { color: var(--color-now); }
 .toc > li.is-done .p, .toc > li.is-done .no { color: var(--color-hl-ink); font-weight: 700; }
 
-.chapter { padding: 0 0 var(--space-md) 56px; }
+.chapter { padding: 0 0 var(--space-md) var(--indent-chapter); }
 .chapter .goal { color: var(--color-ink-2); margin-bottom: var(--space-xs); }
 .concepts { list-style: none; margin: 0; padding: 0; }
 .concepts li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: var(--space-sm); padding: var(--space-xs) 0; border-top: var(--rule-hair) solid var(--color-rule); }
@@ -87,7 +87,7 @@ a:hover { text-decoration-thickness: 2px; }
 .terms b { color: var(--color-ink); margin-right: var(--space-2xs); }
 .check { margin-top: var(--space-sm); padding: var(--space-xs) var(--space-sm); background: var(--color-card); border-left: var(--rule-bold) solid var(--color-ink); font-size: var(--text-sm); }
 .check b { margin-right: var(--space-2xs); }
-.milestone { list-style: none; padding: var(--space-xs) 0 var(--space-xs) 56px; font-size: var(--text-sm); color: var(--color-ink-2); }
+.milestone { list-style: none; padding: var(--space-xs) 0 var(--space-xs) var(--indent-chapter); font-size: var(--text-sm); color: var(--color-ink-2); }
 .milestone b { color: var(--color-ink); }
 
 .margin { border-left: var(--rule-hair) solid var(--color-rule); padding-left: var(--space-md); display: flex; flex-direction: column; gap: var(--space-lg); align-self: start; position: sticky; top: var(--space-md); }
@@ -111,6 +111,12 @@ a:hover { text-decoration-thickness: 2px; }
   .toc-row .p { grid-column: 2; }
   .concepts li { grid-template-columns: minmax(0, 1fr); gap: 0; }
 }
+
+/* ── 지도 안에서 연 수업 ──────────────────── */
+.lesson-frame-bar { display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-xs) 0; border-bottom: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); }
+.lesson-frame-bar a:last-child { margin-left: auto; color: var(--color-ink-2); }
+.in-frame .lesson-top { display: none; }
+.lesson-frame { display: block; width: 100%; height: calc(100vh - 160px); min-height: 480px; border: 0; background: var(--color-paper); }
 
 /* ── 수업 페이지 ───────────────────────────── */
 .lesson-top { border-bottom: var(--rule-hair) solid var(--color-rule); padding: var(--space-sm) 0; }

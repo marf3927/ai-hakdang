@@ -44,6 +44,14 @@ function Ledger({ data }) {
   const warn = data.errors?.length ? (
     <p className="notice">{data.errors.join(" ")} — AI에게 "progress.json 고쳐 줘"라고 말해 보세요.</p>
   ) : null;
+  if (data.status === "offline") {
+    return (
+      <aside className="ledger-card" aria-label="내 학습 상태">
+        <h2>기록을 읽을 수 없어요</h2>
+        <p className="small muted">학습 지도 서버가 꺼져 있어요. 켜면 내 기록이 여기에 나옵니다.</p>
+      </aside>
+    );
+  }
   if (data.status !== "ready" || !data.learner) {
     return (
       <aside className="ledger-card" aria-label="내 학습 상태">

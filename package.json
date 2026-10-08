@@ -3,9 +3,9 @@
   "private": true,
   "type": "commonjs",
   "description": "AI 학당 — 내 학습 지도",
-  "engines": { "node": ">=20" },
+  "engines": { "node": "^20.19.0 || >=22.12.0" },
   "scripts": {
-    "start": "vite",
+    "start": "node bin/start.mjs",
     "test": "node --test"
   },
   "dependencies": {
