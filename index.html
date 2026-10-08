@@ -3,27 +3,55 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI 학당 — 내 학습 지도</title>
+  <title>AI학당 — 내 학습 지도</title>
+  <link rel="icon" href="assets/brand/favicon.png">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <header class="top">
-    <div class="wrap">
-      <p class="brand">AI 학당</p>
-      <h1 id="title">개발 로드맵</h1>
-      <p id="intro" class="lede"></p>
+  <header class="night">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="wrap masthead">
+      <div class="brand-row">
+        <img src="assets/brand/icon.png" alt="" width="88" height="88">
+        <div>
+          <h1 class="wordmark">AI학당</h1>
+          <p class="tagline">각자의 작업을 함께 배우는 곳</p>
+        </div>
+      </div>
+      <div class="hero-grid">
+        <section class="next-card" id="next" aria-label="다음 수업"></section>
+        <section class="me-card" id="me" aria-label="내 학습 상태"></section>
+      </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <section id="me" class="panel" aria-label="내 학습 상태"></section>
-    <section id="stages" aria-label="단계"></section>
-    <section id="projects" class="panel" aria-label="만들어 볼 것"></section>
-    <section id="lessons" class="panel" aria-label="내 수업"></section>
-  </main>
+  <div class="wrap paper-main">
+    <main>
+      <h2 class="section-title" id="title">개발 로드맵</h2>
+      <p class="intro" id="intro"></p>
+      <ol class="path" id="path"></ol>
+    </main>
+    <aside class="side">
+      <section id="lessons"></section>
+      <section>
+        <h2>표시 읽는 법</h2>
+        <ul class="legend">
+          <li><span class="c"><span class="dot"></span></span>아직 — 수업 전</li>
+          <li><span class="c learning"><span class="dot"></span></span>배우는 중 — 수업을 받음</li>
+          <li><span class="c learned"><span class="dot" id="legend-spark"></span></span>이해함 — 내 말로 설명함</li>
+        </ul>
+      </section>
+    </aside>
+  </div>
 
-  <footer class="wrap foot">
-    <p>공부는 이 폴더에서 AI를 열고 <code>/hakdang</code>(Claude Code) 또는 <code>$hakdang</code>(Codex)로 시작합니다. 이 화면은 이 창으로 돌아올 때마다 새 기록을 다시 읽습니다.</p>
+  <footer class="night cmdbar">
+    <div class="wrap">
+      <img src="assets/brand/icon.png" alt="" width="28" height="28">
+      <span>학습 지도 켜기 <code>npm start</code></span>
+      <span>Claude Code <code>/hakdang</code></span>
+      <span>Codex <code>$hakdang</code></span>
+      <span>이 창으로 돌아오면 새 기록을 다시 읽습니다</span>
+    </div>
   </footer>
 
   <script src="assets/dashboard.js"></script>

@@ -14,7 +14,7 @@
 
 ## 뼈대
 
-공용 스타일과 컴포넌트를 쓴다. 새로 필요한 컴포넌트가 다음 수업에도 쓰일 만하면 `assets/` 에 따로 만들지 말고 학습자 저장소의 `me/assets/` 에 만든다(`assets/` 는 업데이트 때 원본으로 덮인다).
+공용 스타일과 컴포넌트를 쓴다. 색 · 글꼴 · 간격은 저장소 루트 `design.md` 의 학당 디자인 시스템을 따르고, 값은 `assets/tokens.css` 의 이름(`var(--color-lavender)` 등)으로만 쓴다. 새로 필요한 컴포넌트가 다음 수업에도 쓰일 만하면 `assets/` 에 따로 만들지 말고 학습자 저장소의 `me/assets/` 에 만든다(`assets/` 는 업데이트 때 원본으로 덮인다).
 
 ```html
 <!doctype html>
@@ -23,14 +23,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>0001 · 터미널과 첫 명령</title>
+  <link rel="icon" href="../../assets/brand/favicon.png">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
-<article class="lesson">
-  <header>
+<header class="night lesson-top">
+  <div class="wrap">
+    <img src="../../assets/brand/icon.png" alt="" width="40" height="40">
     <p class="crumbs"><a href="../../index.html">내 학습 지도</a> · 0단계 컴퓨터와 작업 환경</p>
-    <h1>터미널과 첫 명령</h1>
-  </header>
+  </div>
+</header>
+<article class="lesson">
+  <h1>터미널과 첫 명령</h1>
 
   <h2>왜 지금</h2>
   <p>…</p>
@@ -46,7 +50,7 @@
   <div class="source"><strong>원문 읽기</strong> <a href="…">…</a></div>
   <div class="ask"><strong>물어보기</strong> …</div>
 
-  <p class="muted small">← 이전 · 다음 →</p>
+  <p class="lesson-nav"><a href="../../index.html">← 학습 지도</a><a href="0002-….html">다음 수업 →</a></p>
 </article>
 <script src="../../assets/quiz.js"></script>
 </body>

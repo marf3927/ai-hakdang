@@ -1,5 +1,7 @@
 # AI 학당 — 내 학습 지도
 
+![AI학당 — 각자의 작업을 함께 배우는 곳](assets/brand/cover.jpg)
+
 AI 학당 멤버가 개발 기초를 **AI 선생님과 함께** 혼자 공부하는 저장소입니다.
 
 - 로드맵: 컴퓨터 → 웹 → 코드 → Git → 데이터 → 배포 → 자동화, 그리고 처음부터 함께 가는 「AI와 개발」까지 8단계
@@ -44,6 +46,7 @@ codex       # 또는 이것, 그리고 $hakdang
 ai-hakdang/
   server.js         학습 지도 서버 (npm start → http://localhost:4321)
   index.html        내 학습 지도 화면
+  design.md         학당 디자인 시스템 — 색 · 글꼴 · 로고 · 화면 규칙
   data/roadmap.json 로드맵 — 단계 · 개념 · 용어 · 확인 기준
   me/               내 공부 기록 — 설문, 진도, 수업, 용어집
   setup/START.md    처음 설정할 때 AI가 읽는 안내
