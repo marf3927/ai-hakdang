@@ -1,6 +1,7 @@
-import Masthead from "./components/Masthead.jsx";
-import RoadmapPath from "./components/RoadmapPath.jsx";
-import SidePanel from "./components/SidePanel.jsx";
+import BookHead from "./components/BookHead.jsx";
+import Margin from "./components/Margin.jsx";
+import TableOfContents from "./components/TableOfContents.jsx";
+import TopBar from "./components/TopBar.jsx";
 import { useLearningState } from "./useLearningState.js";
 
 export default function App() {
@@ -8,22 +9,22 @@ export default function App() {
 
   return (
     <>
-      <Masthead data={data} />
+      <TopBar />
+      <BookHead data={data} />
       {data.status === "ready" && data.roadmap ? (
-        <div className="wrap paper-main">
+        <div className="wrap book">
           <main>
-            <h2 className="section-title">{data.roadmap.title}</h2>
+            <h2 className="sec-title">차례 — {data.roadmap.title}</h2>
             <p className="intro">{data.roadmap.intro}</p>
-            <RoadmapPath data={data} />
+            <TableOfContents data={data} />
           </main>
-          <SidePanel data={data} />
+          <Margin data={data} />
         </div>
       ) : data.status === "ready" ? (
-        <div className="wrap paper-main"><p className="notice">로드맵을 읽지 못했습니다. {data.errors?.join(" ")}</p></div>
+        <div className="wrap book"><p className="notice">로드맵을 읽지 못했습니다. {data.errors?.join(" ")}</p></div>
       ) : null}
-      <footer className="night cmdbar">
+      <footer className="foot">
         <div className="wrap">
-          <img src="/assets/brand/icon.png" alt="" width="28" height="28" />
           <span>학습 지도 켜기 <code>npm start</code></span>
           <span>Claude Code <code>/hakdang</code></span>
           <span>Codex <code>$hakdang</code></span>

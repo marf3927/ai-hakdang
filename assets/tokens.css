@@ -1,51 +1,85 @@
-/* Hallmark · theme: custom (AI 학당 brand) · paper-band: dark+light / display: heavy-sans / accent: cool (lavender) + lime spark
- * 색은 디스코드 아이콘 · 커버(assets/brand/)에서 그대로 가져왔다. 새 색이 필요하면 여기에 이름을 붙여 추가하고 design.md 에도 적는다.
+/* Hallmark · theme: custom "학당 문고" (시안 C) · paper-band: light-cool / display: rounded-sans (SUIT) / accent: cool lavender + lime highlighter
+ * 바탕은 차가운 회색 종이, 장식은 상자 대신 선, '이해함'은 형광펜. 새 색이 필요하면 여기에 이름을 붙여 추가하고 design.md 에도 적는다.
  */
+@import url("https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css");
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
 
 :root {
-  /* 밤 — 로고 배경. 머리 · 바닥 · 강조 면 */
-  --color-night:      oklch(23.4% 0.050 277);
-  --color-night-2:    oklch(28.5% 0.066 277);
-  --color-night-rule: oklch(36% 0.060 280);
-  /* 종이 — 책 크림. 읽는 면 */
-  --color-cream:      oklch(94.6% 0.022 81);
-  --color-paper:      oklch(97.7% 0.010 82);
-  --color-card:       oklch(99.4% 0.004 82);
-  --color-rule:       oklch(89.7% 0.022 83);
-  /* 글자 */
-  --color-ink:        oklch(27.0% 0.041 281);
-  --color-ink-2:      oklch(53.1% 0.025 288);
-  --color-on-night:   oklch(94.6% 0.022 81);
-  --color-on-night-2: oklch(78% 0.030 285);
-  /* 강조 — 커서 라벤더(현재 · 배우는 중), 반짝임 라임(이해함 · 통과) */
-  --color-lavender:     oklch(77.2% 0.127 292);
-  --color-lavender-ink: oklch(49.8% 0.191 284);
-  --color-lavender-wash:oklch(95.5% 0.025 292);
-  --color-lime:         oklch(94.7% 0.093 119);
-  --color-lime-ink:     oklch(45% 0.110 125);
-  --color-wrong:        oklch(55% 0.170 25);
-  --color-wrong-wash:   oklch(95% 0.030 25);
-  --color-focus:        oklch(49.8% 0.191 284);
-  --color-focus-night:  oklch(77.2% 0.127 292);
+  /* 종이 */
+  --color-paper:   oklch(97.4% 0.005 286);
+  --color-paper-2: oklch(94.5% 0.009 286);
+  --color-card:    oklch(100% 0 0);
+  --color-rule:    oklch(88.6% 0.016 286);
+  /* 잉크 */
+  --color-ink:     oklch(24.9% 0.042 279);
+  --color-ink-2:   oklch(51.6% 0.027 285);
+  /* 표지 — 로고 남색. 로고 둘레 · 코드 블록에만 */
+  --color-cover:   oklch(23.4% 0.050 277);
+  --color-on-cover: oklch(94.6% 0.022 81);
+  /* 뜻이 있는 색 */
+  --color-now:      oklch(49.8% 0.191 284);  /* 지금 · 배우는 중 · 링크 */
+  --color-now-wash: oklch(94.7% 0.022 295);
+  --color-hl:       oklch(92.8% 0.114 120);  /* 형광펜 = 이해함 */
+  --color-hl-ink:   oklch(48.8% 0.117 127);
+  --color-wrong:    oklch(53.9% 0.151 34);   /* 오답 · 고쳐 쓰기 */
+  --color-wrong-wash: oklch(94% 0.02 37);
+  --color-focus:    oklch(49.8% 0.191 284);
 
-  --font-display: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --font-display: "SUIT Variable", SUIT, "Pretendard Variable", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --font-body:    "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --font-mono:    ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
 
-  --text-xs: 0.75rem;  --text-sm: 0.875rem; --text-md: 1rem;    --text-lg: 1.125rem;
-  --text-xl: 1.375rem; --text-2xl: 1.75rem; --text-3xl: 2.25rem;
-  --text-display: clamp(2.5rem, 6vw + 1rem, 4.5rem);
+  --text-xs: 0.8125rem; --text-sm: 0.9375rem; --text-md: 1.0625rem; --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;  --text-2xl: 1.75rem;  --text-3xl: 2.375rem;
+  --text-display: clamp(2.25rem, 5vw + 1rem, 4rem);
 
   --space-3xs: 0.25rem; --space-2xs: 0.5rem; --space-xs: 0.75rem;
   --space-sm: 1rem;     --space-md: 1.5rem;  --space-lg: 2rem;
   --space-xl: 3rem;     --space-2xl: 4.5rem;
 
-  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-pill: 999px;
-  --rule-hair: 1px; --rule-path: 3px;
+  --rule-hair: 1px; --rule-bold: 2px;
+  --radius-sm: 4px; --radius-md: 8px;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --dur-short: 160ms; --dur-med: 240ms;
+}
+
+/* 다크 모드 — 시스템 설정을 따르고, 화면의 전환 버튼(html[data-theme])이 이긴다. 두 블록은 같은 값이다. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper:   oklch(20.6% 0.042 278);
+  --color-paper-2: oklch(25.1% 0.051 277);
+  --color-card:    oklch(24.2% 0.048 277);
+  --color-rule:    oklch(33.6% 0.065 278);
+  --color-ink:     oklch(94% 0.016 298);
+  --color-ink-2:   oklch(72.1% 0.04 290);
+  --color-cover:   oklch(18.2% 0.037 277);
+  --color-now:      oklch(77.2% 0.127 292);
+  --color-now-wash: oklch(28.4% 0.07 283);
+  --color-hl:       oklch(45% 0.098 124);
+  --color-hl-ink:   oklch(89.5% 0.14 122);
+  --color-wrong:    oklch(75.8% 0.147 34);
+  --color-wrong-wash: oklch(28.6% 0.036 11);
+  --color-focus:    oklch(77.2% 0.127 292);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-paper:   oklch(20.6% 0.042 278);
+    --color-paper-2: oklch(25.1% 0.051 277);
+    --color-card:    oklch(24.2% 0.048 277);
+    --color-rule:    oklch(33.6% 0.065 278);
+    --color-ink:     oklch(94% 0.016 298);
+    --color-ink-2:   oklch(72.1% 0.04 290);
+    --color-cover:   oklch(18.2% 0.037 277);
+    --color-now:      oklch(77.2% 0.127 292);
+    --color-now-wash: oklch(28.4% 0.07 283);
+    --color-hl:       oklch(45% 0.098 124);
+    --color-hl-ink:   oklch(89.5% 0.14 122);
+    --color-wrong:    oklch(75.8% 0.147 34);
+    --color-wrong-wash: oklch(28.6% 0.036 11);
+    --color-focus:    oklch(77.2% 0.127 292);
+  }
 }

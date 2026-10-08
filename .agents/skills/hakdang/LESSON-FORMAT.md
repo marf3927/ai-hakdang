@@ -24,6 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>0001 · 터미널과 첫 명령</title>
   <link rel="icon" href="../../assets/brand/favicon.png">
+  <script src="../../assets/theme.js"></script>
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
