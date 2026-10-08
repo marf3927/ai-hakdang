@@ -71,7 +71,8 @@ function createApi(root) {
     const url = new URL(req.url, "http://localhost");
     if (!url.pathname.startsWith("/api/")) return next();
 
-    if (url.pathname === "/api/health") return send(res, 200, { ok: true });
+    // root: 같은 포트를 다른 폴더의 학습 지도가 쓰는지 bin/start.mjs 가 가린다(127.0.0.1 에서만 열린다).
+    if (url.pathname === "/api/health") return send(res, 200, { ok: true, root });
 
     if (url.pathname === "/api/state" && req.method === "GET") {
       const errors = [];

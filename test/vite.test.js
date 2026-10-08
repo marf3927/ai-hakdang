@@ -34,7 +34,7 @@ after(() => server.close());
 test("API 가 개발 서버에 붙어 있다", async () => {
   const res = await fetch(base + "/api/health");
   assert.equal(res.status, 200);
-  assert.deepEqual(await res.json(), { ok: true });
+  assert.equal((await res.json()).ok, true);
 });
 
 test("화면과 수업 파일을 보여 준다", async () => {

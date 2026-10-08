@@ -22,6 +22,11 @@ before(async () => {
 
 after(() => server.close());
 
+test("상태 확인은 어느 폴더의 학습 지도인지 알려 준다", async () => {
+  const h = await (await fetch(base + "/api/health")).json();
+  assert.deepEqual(h, { ok: true, root });
+});
+
 test("/api 가 아닌 요청은 다음 처리기로 넘긴다", async () => {
   const res = await fetch(base + "/index.html");
   assert.equal(res.status, 404);
