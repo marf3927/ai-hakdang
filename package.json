@@ -1,10 +1,19 @@
 {
   "name": "ai-hakdang",
   "private": true,
+  "type": "commonjs",
   "description": "AI 학당 — 내 학습 지도",
-  "engines": { "node": ">=18" },
+  "engines": { "node": ">=20" },
   "scripts": {
-    "start": "node server.js",
+    "start": "vite",
     "test": "node --test"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.4"
   }
 }

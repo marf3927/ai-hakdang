@@ -66,8 +66,9 @@ Windows 에서 설치 직후 명령을 못 찾으면 터미널을 새로 열어�
    ```
 
    같은 이름이 이미 있으면 학습자에게 알리고, 그 저장소를 쓸지(`gh repo clone ai-hakdang`) 다른 이름으로 만들지 묻는다.
-3. `ai-hakdang` 폴더에서 원본을 `upstream` 으로 등록한다(나중에 로드맵 업데이트를 받는 통로): `git remote add upstream https://github.com/marf3927/ai-hakdang.git`
-4. 설문 결과를 `me/PROFILE.md` 로 저장한다:
+3. `ai-hakdang` 폴더에서 `npm install` 로 학습 지도 화면에 필요한 부품을 설치한다(1–2분, 처음 한 번). 무엇을 하는 명령인지 한 줄로 설명한다.
+4. 원본을 `upstream` 으로 등록한다(나중에 로드맵 업데이트를 받는 통로): `git remote add upstream https://github.com/marf3927/ai-hakdang.git`
+5. 설문 결과를 `me/PROFILE.md` 로 저장한다:
 
    ```md
    # 내 프로필
@@ -84,8 +85,8 @@ Windows 에서 설치 직후 명령을 못 찾으면 터미널을 새로 열어�
    1. … 
    ```
 
-5. `me/progress.json` 의 `learner` 를 채우고 `updated` 에 오늘 날짜를 넣는다(형식은 `.agents/skills/hakdang/PROGRESS-FORMAT.md`). `next` 에 시작 단계의 첫 개념을 넣는다.
-6. `git add me && git commit -m "시작: 설문 결과" && git push`
+6. `me/progress.json` 의 `learner` 를 채우고 `updated` 에 오늘 날짜를 넣는다(형식은 `.agents/skills/hakdang/PROGRESS-FORMAT.md`). `next` 에 시작 단계의 첫 개념을 넣는다.
+7. `git add me && git commit -m "시작: 설문 결과" && git push`
 
 ## 5. 마무리 안내
 

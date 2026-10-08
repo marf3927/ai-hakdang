@@ -101,11 +101,12 @@ description: AI 학당 로드맵으로 공부하는 수업 진행. 학습자가 
 ```sh
 git remote get-url upstream || git remote add upstream <원본 주소>
 git fetch upstream
-git checkout upstream/main -- data assets index.html server.js package.json test setup .agents .claude AGENTS.md CLAUDE.md README.md
+git checkout upstream/main -- data assets src server index.html vite.config.mjs package.json package-lock.json test setup .agents .claude AGENTS.md CLAUDE.md README.md design.md
+npm install
 git commit -m "로드맵 업데이트 받기" && git push
 ```
 
-받은 뒤 서버를 다시 켜고(`server.js` 가 바뀌었을 수 있다), `data/roadmap.json` 에서 사라진 개념 id 가 `progress.json` 에 남아 있으면 학습자에게 알려 주고 정리한다.
+받은 뒤 서버를 다시 켜고(화면 · 서버 코드가 바뀌었을 수 있다), `data/roadmap.json` 에서 사라진 개념 id 가 `progress.json` 에 남아 있으면 학습자에게 알려 주고 정리한다.
 
 ## 지키는 것
 

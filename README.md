@@ -33,6 +33,7 @@ AI가 먼저 간단한 설문으로 수준을 확인하고, 필요한 프로그�
 
 ```sh
 cd ~/workspace/ai-hakdang
+npm install # 처음 한 번 (AI가 대신 해 줍니다)
 npm start   # 학습 지도 켜기 → http://localhost:4321 (AI가 대신 켜 주기도 합니다)
 claude      # 그리고 /hakdang
 codex       # 또는 이것, 그리고 $hakdang
@@ -44,8 +45,8 @@ codex       # 또는 이것, 그리고 $hakdang
 
 ```
 ai-hakdang/
-  server.js         학습 지도 서버 (npm start → http://localhost:4321)
-  index.html        내 학습 지도 화면
+  src/              학습 지도 화면 (Vite + React)
+  server/api.js     진도 · 퀴즈 기록 API (npm start → http://localhost:4321)
   design.md         학당 디자인 시스템 — 색 · 글꼴 · 로고 · 화면 규칙
   data/roadmap.json 로드맵 — 단계 · 개념 · 용어 · 확인 기준
   me/               내 공부 기록 — 설문, 진도, 수업, 용어집

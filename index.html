@@ -4,57 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI학당 — 내 학습 지도</title>
-  <link rel="icon" href="assets/brand/favicon.png">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="/assets/brand/favicon.png">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-  <header class="night">
-    <div class="stars" aria-hidden="true"></div>
-    <div class="wrap masthead">
-      <div class="brand-row">
-        <img src="assets/brand/icon.png" alt="" width="88" height="88">
-        <div>
-          <h1 class="wordmark">AI학당</h1>
-          <p class="tagline">각자의 작업을 함께 배우는 곳</p>
-        </div>
-      </div>
-      <div class="hero-grid">
-        <section class="next-card" id="next" aria-label="다음 수업"></section>
-        <section class="me-card" id="me" aria-label="내 학습 상태"></section>
-      </div>
-    </div>
-  </header>
-
-  <div class="wrap paper-main">
-    <main>
-      <h2 class="section-title" id="title">개발 로드맵</h2>
-      <p class="intro" id="intro"></p>
-      <ol class="path" id="path"></ol>
-    </main>
-    <aside class="side">
-      <section id="lessons"></section>
-      <section id="electives"></section>
-      <section>
-        <h2>표시 읽는 법</h2>
-        <ul class="legend">
-          <li><span class="c"><span class="dot"></span></span>아직 — 수업 전</li>
-          <li><span class="c learning"><span class="dot"></span></span>배우는 중 — 수업을 받음</li>
-          <li><span class="c learned"><span class="dot" id="legend-spark"></span></span>이해함 — 내 말로 설명함</li>
-        </ul>
-      </section>
-    </aside>
-  </div>
-
-  <footer class="night cmdbar">
-    <div class="wrap">
-      <img src="assets/brand/icon.png" alt="" width="28" height="28">
-      <span>학습 지도 켜기 <code>npm start</code></span>
-      <span>Claude Code <code>/hakdang</code></span>
-      <span>Codex <code>$hakdang</code></span>
-      <span>이 창으로 돌아오면 새 기록을 다시 읽습니다</span>
-    </div>
-  </footer>
-
-  <script src="assets/dashboard.js"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
