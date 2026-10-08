@@ -92,15 +92,10 @@ Windows 에서 설치 직후 명령을 못 찾으면 터미널을 새로 열어�
 6. `me/progress.json` 의 `learner` 를 채우고 `updated` 에 오늘 날짜를 넣는다(형식은 `.agents/skills/hakdang/PROGRESS-FORMAT.md`). `next` 에 시작 단계의 첫 개념을 넣는다.
 7. `git add me && git commit -m "시작: 설문 결과" && git push`
 
-## 5. 마무리 안내
+## 5. 마무리 — 설명보다 첫 수업
 
-학습자에게 아래를 그대로 알려 준다(경로와 명령은 학습자 운영체제에 맞춰서):
+긴 사용법 설명을 하지 않는다(체험에서 "너무 복잡한데 니가 해줘" 가 나왔다).
 
-1. 내 학습 지도는 이 폴더의 작은 서버로 봅니다. 공부할 때 터미널에서 `npm start` 를 켜 두고 http://localhost:4321 을 여세요. (지금 바로 서버를 켜고 브라우저로 열어 준다. 서버는 내 컴퓨터 안에서만 열리고 다른 사람은 볼 수 없다고 알려 준다)
-2. 공부할 때는 **`ai-hakdang` 폴더에서** AI를 엽니다.
-   - Claude Code: 터미널에서 `cd ~/workspace/ai-hakdang` 후 `claude` → `/hakdang`
-   - Codex: `cd ~/workspace/ai-hakdang` 후 `codex` → `$hakdang`
-3. "공부하자", "다음 수업", "이 단계 확인해 줘", "복습하고 싶어", "로드맵 업데이트 받아 줘"처럼 말해도 됩니다.
-4. 수업이 끝날 때마다 기록이 내 GitHub 저장소에 저장됩니다.
-
-지금 세션은 홈 폴더에서 열렸으므로 학당 스킬이 아직 보이지 않는다. 학습자가 원하면 이번에는 `ai-hakdang/.agents/skills/hakdang/SKILL.md` 를 직접 읽고 첫 수업을 바로 시작해도 된다.
+1. 학습 지도를 켜고 브라우저로 열어 준다(`npm start` → http://localhost:4321). 한 줄로만 말한다: "이게 ○○님의 학습 지도예요. 공부한 만큼 여기에 쌓여요."
+2. 바로 첫 수업을 시작한다 — `ai-hakdang/.agents/skills/hakdang/SKILL.md` 를 읽고 그대로 따른다. 묻지 말고 "첫 수업을 바로 시작할게요"로 넘어간다.
+3. 다음에 공부를 다시 시작하는 방법(이 폴더에서 AI를 열고 "공부하자"라고 말하기)은 첫 수업이 끝날 때 한 번만 알려 준다.
