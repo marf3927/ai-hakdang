@@ -100,7 +100,7 @@ description: AI 학당 로드맵으로 공부하는 수업 진행. 학습자가 
 ```sh
 git remote get-url upstream || git remote add upstream <원본 주소>
 git fetch upstream
-git checkout upstream/main -- data assets src server index.html vite.config.mjs package.json package-lock.json test setup .agents .claude AGENTS.md CLAUDE.md README.md design.md
+git checkout upstream/main -- data assets src server bin index.html vite.config.mjs package.json package-lock.json test setup .agents .claude AGENTS.md CLAUDE.md README.md design.md
 npm install
 git commit -m "로드맵 업데이트 받기" && git push
 ```

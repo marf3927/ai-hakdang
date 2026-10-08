@@ -1,5 +1,7 @@
 import Meter from "./Meter.jsx";
+import CopyButton from "./CopyButton.jsx";
 import { Cursor } from "./icons.jsx";
+import { fillPrompt } from "../shape.mjs";
 
 export default function BookHead({ data }) {
   return (
@@ -35,7 +37,11 @@ function NextChapter({ data }) {
       <p className="kicker"><Cursor />다음에 읽을 장 · {data.stageName?.(next.stage)}</p>
       <h1>{next.title}</h1>
       {next.why && <p className="why">{next.why}</p>}
-      <p className="how">AI에게 "다음 수업"이라고 말하면 시작합니다.</p>
+      <div className="next-copy">
+        <q>{fillPrompt(data.prompts?.nextLesson || "다음 수업 시작해 줘 — {title}", { title: next.title })}</q>
+        <CopyButton text={fillPrompt(data.prompts?.nextLesson || "다음 수업 시작해 줘 — {title}", { title: next.title })} label="이 문장 복사" />
+      </div>
+      <p className="how">복사해서 AI 선생님 창에 붙여 넣으세요. 처음이면 아래 「AI 선생님에게 이렇게 말하세요」를 보세요.</p>
     </div>
   );
 }

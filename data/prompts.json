@@ -1,0 +1,25 @@
+{
+  "open": {
+    "title": "공부를 시작할 때",
+    "steps": [
+      "터미널을 엽니다 (Mac: Spotlight 에서 '터미널', Windows: 'PowerShell').",
+      "아래 명령을 복사해 붙여 넣고 Enter — 내 공부 폴더로 가서 AI 선생님을 켭니다.",
+      "AI 가 켜지면 아래 '이렇게 말하세요' 에서 지금 하고 싶은 문장을 복사해 붙여 넣습니다."
+    ],
+    "commands": [
+      { "id": "open-claude", "label": "Claude Code 로 열기", "text": "cd \"{root}\" && claude" },
+      { "id": "open-codex", "label": "Codex 로 열기", "text": "cd \"{root}\" && codex" },
+      { "id": "map", "label": "학습 지도 켜기 (화면이 안 열릴 때)", "text": "cd \"{root}\" && npm start" }
+    ]
+  },
+  "say": [
+    { "id": "next", "when": "다음 수업을 듣고 싶을 때", "text": "공부하자. 다음 수업 시작해 줘." },
+    { "id": "done-reading", "when": "수업을 다 읽었을 때", "text": "수업 다 읽었어. 확인 질문해 줘." },
+    { "id": "question", "when": "모르는 게 있을 때", "text": "이 부분이 이해가 안 돼: (모르는 말이나 문장). 내가 만들고 싶은 것에 빗대서 쉽게 설명해 줘." },
+    { "id": "check-stage", "when": "한 장을 다 배운 것 같을 때", "text": "이 단계 끝난 것 같아. 단계 확인해 줘." },
+    { "id": "review", "when": "배운 걸 다시 다지고 싶을 때", "text": "복습하고 싶어. 틀렸던 것 위주로 짧게 퀴즈 내 줘." },
+    { "id": "stuck", "when": "오류가 나거나 막혔을 때", "text": "막혔어. 내가 하려던 건 (하려던 것)이고, 이런 일이 생겼어: (보이는 화면이나 오류 메시지). 같이 봐 줘." },
+    { "id": "update", "when": "로드맵 새 버전을 받고 싶을 때", "text": "로드맵 업데이트 받아 줘." }
+  ],
+  "nextLesson": "다음 수업 시작해 줘 — {title}"
+}

@@ -38,3 +38,10 @@ test("수업 주소(#/lesson/…)는 me/lessons 안의 html 만 받는다", () =
   assert.equal(lessonFromHash("#/lesson/me/lessons/a.js"), null);
   assert.equal(lessonFromHash(""), null);
 });
+
+test("복사할 문장에 실제 폴더 경로와 다음 수업 제목을 채운다", async () => {
+  const { fillPrompt } = await import("../src/shape.mjs");
+  assert.equal(fillPrompt('cd "{root}" && claude', { root: "/Users/me/workspace/ai-hakdang" }), 'cd "/Users/me/workspace/ai-hakdang" && claude');
+  assert.equal(fillPrompt("다음 수업 시작해 줘 — {title}", { title: "요청과 응답" }), "다음 수업 시작해 줘 — 요청과 응답");
+  assert.equal(fillPrompt("그대로 {없음}", {}), "그대로 {없음}");
+});

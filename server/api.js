@@ -77,7 +77,9 @@ function createApi(root) {
     if (url.pathname === "/api/state" && req.method === "GET") {
       const errors = [];
       return send(res, 200, {
+        root,
         roadmap: readJson(path.join(root, "data", "roadmap.json"), errors),
+        prompts: readJson(path.join(root, "data", "prompts.json"), errors),
         progress: readJson(path.join(meDir, "progress.json"), errors),
         quiz: readQuizLog(quizLog),
         errors,

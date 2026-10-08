@@ -36,6 +36,8 @@ test("/api 가 아닌 요청은 다음 처리기로 넘긴다", async () => {
 test("상태 API 는 로드맵 · 진도 · 퀴즈 기록을 매번 파일에서 읽는다", async () => {
   const a = await (await fetch(base + "/api/state")).json();
   assert.equal(a.progress.learner.name, "지민");
+  assert.equal(a.root, root);
+  assert.equal(a.prompts, null);
   assert.deepEqual(a.quiz, []);
   fs.writeFileSync(path.join(root, "me", "progress.json"), JSON.stringify({ learner: { name: "민수" } }));
   const b = await (await fetch(base + "/api/state")).json();

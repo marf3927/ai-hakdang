@@ -1,6 +1,6 @@
 // /api/state 응답을 화면이 쓰는 모양으로 바꾼다. React 없이 테스트할 수 있게 순수 함수로 둔다(test/shape.test.mjs).
 
-export function shapeState({ roadmap, progress, quiz = [], errors = [] }) {
+export function shapeState({ root = "", roadmap, prompts = null, progress, quiz = [], errors = [] }) {
   if (!roadmap) return { roadmap: null, errors };
   const P = progress || {};
   const conceptState = P.concepts || {};
@@ -23,6 +23,8 @@ export function shapeState({ roadmap, progress, quiz = [], errors = [] }) {
   const trackTitle = Object.fromEntries(tracks.map((t) => [t.id, t.title]));
 
   return {
+    root,
+    prompts,
     roadmap,
     stages,
     parts,
@@ -46,6 +48,11 @@ export function shapeState({ roadmap, progress, quiz = [], errors = [] }) {
       return s ? `${trackTitle[s.track] ? trackTitle[s.track] + " " : ""}${s.no}장 ${s.title}` : "";
     },
   };
+}
+
+// 복사용 문장의 {root} · {title} 같은 자리를 채운다. 모르는 자리는 그대로 둔다.
+export function fillPrompt(text, values) {
+  return text.replace(/\{(\w+)\}/g, (all, key) => (values[key] !== undefined ? values[key] : all));
 }
 
 // 화면 안에서 수업을 여는 주소: #/lesson/me/lessons/<파일>.html — 그 폴더의 html 만 받는다.

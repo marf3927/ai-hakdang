@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import BookHead from "./components/BookHead.jsx";
 import LessonView from "./components/LessonView.jsx";
 import Margin from "./components/Margin.jsx";
+import PromptGuide from "./components/PromptGuide.jsx";
 import TableOfContents from "./components/TableOfContents.jsx";
 import TopBar from "./components/TopBar.jsx";
 import { lessonFromHash } from "./shape.mjs";
@@ -29,6 +30,7 @@ export default function App() {
       ) : (
         <>
           <BookHead data={data} />
+          {data.status === "ready" && <PromptGuide data={data} />}
           {data.status === "ready" && data.roadmap ? (
             <div className="wrap book">
               <main>
