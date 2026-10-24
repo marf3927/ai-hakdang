@@ -45,7 +45,8 @@ description: AI 학당 로드맵으로 공부하는 수업 진행. 학습자가 
 ## 매번 하는 일
 
 1. **상태 읽기** — 위 파일을 모두 읽는다. 가장 최근 learning record 3개, `NOTES.md`, 지난 수업 이후의 `quiz-log.jsonl` 은 빠짐없이 본다. 틀린 퀴즈의 `concept` 은 다음 수업이나 확인 대화에서 다시 다룬다.
-   - 서버가 꺼져 있으면(`curl -s http://localhost:4321/api/health` 가 실패) 켠다. macOS · Linux: `nohup npm start >/dev/null 2>&1 &`, Windows PowerShell: `Start-Process npm -ArgumentList start -WindowStyle Hidden`.
+   - 서버가 꺼져 있으면(`curl -s http://localhost:4321/api/health` 가 실패) 이 저장소 폴더에서 켠다. macOS · Linux: `nohup npm start >/dev/null 2>&1 &`, Windows PowerShell: `Start-Process npm -ArgumentList start -WindowStyle Hidden`.
+   - 켜져 있어도 응답의 `root` 가 이 저장소 폴더가 아니면 다른 폴더의 학습 지도다. 그대로 쓰면 수업 · 진도가 그 폴더 것으로 보인다. 학습자에게 알리고, 그 학습 지도를 켠 창에서 Ctrl+C 로 끄게 한 뒤 이 폴더에서 켠다.
    - `me/PROFILE.md` 가 없으면 [`setup/START.md`](../../../setup/START.md) 의 「설문」 절만 진행해 `me/PROFILE.md` 를 만들고 `progress.json` 의 `learner` 를 채운 뒤 이어간다.
 2. **요청 고르기** — 학습자가 말한 것이 아래 중 어느 것인지 정한다. 말이 없으면 「수업」이다.
    - **수업** → 「수업 진행」

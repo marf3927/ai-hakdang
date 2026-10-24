@@ -19,7 +19,7 @@ async function runningStudyMap() {
   }
 }
 
-const same = (a, b) => {
+const isSameFolder = (a, b) => {
   try {
     return fs.realpathSync(a) === fs.realpathSync(b);
   } catch {
@@ -35,12 +35,13 @@ function portIsBusy() {
 }
 
 const runningRoot = await runningStudyMap();
+// 옛 버전은 폴더를 알려 주지 않는다(""). 업데이트를 받고 다시 켜기 전의 이 폴더일 가능성이 가장 커서 켜져 있는 것으로 본다.
 if (runningRoot !== null) {
-  if (same(runningRoot, root)) {
+  if (runningRoot === "" || isSameFolder(runningRoot, root)) {
     console.log(`학습 지도는 이미 켜져 있어요 → ${url}`);
     process.exit(0);
   }
-  console.log(`${port} 번 포트에는 다른 폴더(${runningRoot || "알 수 없음"})의 학습 지도가 켜져 있어요. 그 창에서 Ctrl+C 로 끄거나, PORT=4322 npm start 처럼 다른 번호로 켜세요.`);
+  console.log(`${port} 번 포트에는 다른 폴더(${runningRoot})의 학습 지도가 켜져 있어요. 그 창에서 Ctrl+C 로 끄거나, PORT=4322 npm start 처럼 다른 번호로 켜세요.`);
   process.exit(1);
 }
 if (await portIsBusy()) {

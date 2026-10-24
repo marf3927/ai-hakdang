@@ -11,3 +11,7 @@ test("복사용 문장은 id 가 겹치지 않고 비어 있지 않다", () => {
 test("폴더로 가는 명령은 실제 폴더 경로({root})를 채울 자리가 있다", () => {
   for (const c of prompts.open.commands) assert.match(c.text, /\{root\}/, c.id);
 });
+
+test("명령은 Windows 기본 PowerShell 5.1 에서도 되도록 && 로 잇지 않는다", () => {
+  for (const c of prompts.open.commands) assert.doesNotMatch(c.text, /&&/, c.id);
+});

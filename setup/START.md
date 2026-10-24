@@ -3,7 +3,7 @@
 이 파일은 학습자가 아니라 **AI가 읽고 진행하는 안내**다. 학습자는 README 의 시작 프롬프트를 붙여 넣었을 뿐이고, 개발이 처음일 수 있다. 각 단계에서 무엇을 왜 하는지 한두 문장으로 쉽게 말하고, 설치 · 로그인처럼 학습자 컴퓨터를 바꾸는 일은 허락을 받고 한다.
 
 - 원본 주소: `https://github.com/marf3927/ai-hakdang`
-- 만들 위치: 홈 폴더 아래 `workspace/ai-hakdang` (macOS · Linux `~/workspace/ai-hakdang`, Windows `%USERPROFILE%\workspace\ai-hakdang`)
+- 만들 위치: 홈 폴더 아래 `workspace/ai-hakdang` (macOS · Linux `~/workspace/ai-hakdang`, Windows `%USERPROFILE%\workspace\ai-hakdang`). 4-2 에서 다른 이름으로 만들면 그 이름의 폴더다 — 아래의 `ai-hakdang` 폴더도 마찬가지
 
 모든 단계가 끝나면 학습자의 GitHub 계정에 **비공개 저장소** `ai-hakdang` 이 생기고, 그 복사본이 위 위치에 있고, 설문 결과가 `me/PROFILE.md` 에 저장된 상태다.
 
@@ -69,7 +69,9 @@ Windows 에서 설치 직후 명령을 못 찾으면 터미널을 새로 열어�
    gh repo create ai-hakdang --template marf3927/ai-hakdang --private --clone
    ```
 
-   같은 이름이 이미 있으면 학습자에게 알리고, 그 저장소를 쓸지(`gh repo clone ai-hakdang`) 다른 이름으로 만들지 묻는다.
+   같은 이름이 이미 있으면 먼저 그 저장소가 무엇인지 본다: `gh repo view ai-hakdang --json visibility,isTemplate`
+   - **공개이거나 템플릿이면 쓰지 않는다** — 설문 결과와 공부 기록이 남에게 보이게 된다. 학습자에게 이유를 한 줄로 말하고 다른 이름(예: `ai-hakdang-study`)으로 위 명령을 다시 실행한다.
+   - 비공개이고 템플릿이 아니면 예전에 만든 내 공부 저장소일 수 있다. 학습자에게 알리고 그것을 쓸지(`gh repo clone ai-hakdang`) 다른 이름으로 새로 만들지 묻는다.
 3. `ai-hakdang` 폴더에서 `npm install` 로 학습 지도 화면에 필요한 부품을 설치한다(1–2분, 처음 한 번). 무엇을 하는 명령인지 한 줄로 설명한다.
 4. 원본을 `upstream` 으로 등록한다(나중에 로드맵 업데이트를 받는 통로): `git remote add upstream https://github.com/marf3927/ai-hakdang.git`
 5. 설문 결과를 `me/PROFILE.md` 로 저장한다:
@@ -96,6 +98,6 @@ Windows 에서 설치 직후 명령을 못 찾으면 터미널을 새로 열어�
 
 긴 사용법 설명을 하지 않는다(체험에서 "너무 복잡한데 니가 해줘" 가 나왔다).
 
-1. 학습 지도를 켜고 브라우저로 열어 준다(`npm start` → http://localhost:4321). 한 줄로만 말한다: "이게 ○○님의 학습 지도예요. 공부한 만큼 여기에 쌓여요."
-2. 바로 첫 수업을 시작한다 — `ai-hakdang/.agents/skills/hakdang/SKILL.md` 를 읽고 그대로 따른다. 묻지 말고 "첫 수업을 바로 시작할게요"로 넘어간다.
+1. 저장소 폴더에서 학습 지도를 **백그라운드로** 켜고(그냥 `npm start` 를 실행하면 이 대화가 멈춘다 — 켜는 명령은 `.agents/skills/hakdang/SKILL.md` 「매번 하는 일」 1번) 브라우저로 http://localhost:4321 을 열어 준다. 한 줄로만 말한다: "이게 ○○님의 학습 지도예요. 공부한 만큼 여기에 쌓여요."
+2. 바로 첫 수업을 시작한다 — 저장소 폴더의 `.agents/skills/hakdang/SKILL.md` 를 읽고 그대로 따른다. 묻지 말고 "첫 수업을 바로 시작할게요"로 넘어간다.
 3. 다음에 공부를 다시 시작하는 방법(이 폴더에서 AI를 열고 "공부하자"라고 말하기)은 첫 수업이 끝날 때 한 번만 알려 준다.

@@ -7,9 +7,9 @@
       "AI 가 켜지면 아래 '이렇게 말하세요' 에서 지금 하고 싶은 문장을 복사해 붙여 넣습니다."
     ],
     "commands": [
-      { "id": "open-claude", "label": "Claude Code 로 열기", "text": "cd \"{root}\" && claude" },
-      { "id": "open-codex", "label": "Codex 로 열기", "text": "cd \"{root}\" && codex" },
-      { "id": "map", "label": "학습 지도 켜기 (화면이 안 열릴 때)", "text": "cd \"{root}\" && npm start" }
+      { "id": "open-claude", "label": "Claude Code 로 열기", "text": "cd \"{root}\"; claude" },
+      { "id": "open-codex", "label": "Codex 로 열기", "text": "cd \"{root}\"; codex" },
+      { "id": "map", "label": "학습 지도 켜기 (컴퓨터를 다시 켰을 때)", "text": "cd \"{root}\"; npm start" }
     ]
   },
   "say": [
