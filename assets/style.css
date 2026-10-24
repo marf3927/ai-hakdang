@@ -65,7 +65,7 @@ a:hover { text-decoration-thickness: 2px; }
 .prompt-list q, .next-copy q { quotes: "“" "”"; font-weight: 600; }
 .copy { font: inherit; font-size: var(--text-xs); font-weight: 700; white-space: nowrap; color: var(--color-ink); background: var(--color-card); border: var(--rule-hair) solid var(--color-rule); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
 .copy:hover { border-color: var(--color-ink); }
-.copy.is-done { color: var(--color-hl-ink); border-color: var(--color-hl-ink); }
+.copy.is-done { border-color: var(--color-ink); background: var(--color-paper-2); }
 .next-copy { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs) var(--space-sm); margin-top: var(--space-md); padding: var(--space-xs) var(--space-sm); background: var(--color-card); border-left: var(--rule-bold) solid var(--color-now); }
 
 /* ── 본문: 차례 + 여백 ─────────────────────── */

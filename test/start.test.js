@@ -1,6 +1,7 @@
 const { test } = require("node:test");
 const assert = require("node:assert/strict");
 const http = require("node:http");
+const os = require("node:os");
 const path = require("node:path");
 const { execFile } = require("node:child_process");
 
@@ -13,9 +14,9 @@ function fakeServer(root) {
   });
 }
 
-function runStart(port) {
+function runStart(port, cwd = repoRoot) {
   return new Promise((resolve) =>
-    execFile(process.execPath, [path.join(repoRoot, "bin", "start.mjs")], { env: { ...process.env, PORT: String(port) }, timeout: 10000 }, (err, stdout) =>
+    execFile(process.execPath, [path.join(repoRoot, "bin", "start.mjs")], { cwd, env: { ...process.env, PORT: String(port) }, timeout: 10000 }, (err, stdout) =>
       resolve({ code: err ? err.code : 0, stdout })
     )
   );
@@ -49,4 +50,19 @@ test("다른 폴더의 학습 지도가 그 포트를 쓰고 있으면 그 폴�
   assert.notEqual(r.code, 0);
   assert.match(r.stdout, /다른 폴더/);
   assert.match(r.stdout, /\/somewhere\/else\/ai-hakdang/);
+});
+
+test("폴더를 알려 주지 않는 옛 학습 지도가 켜져 있으면 다른 폴더라고 하지 않고 정상 종료한다", async () => {
+  const running = fakeServer(undefined);
+  await new Promise((r) => running.listen(0, "127.0.0.1", r));
+  const port = running.address().port;
+  let r;
+  try {
+    r = await runStart(port, os.tmpdir());
+  } finally {
+    running.close();
+  }
+  assert.equal(r.code, 0);
+  assert.match(r.stdout, /이미 켜져 있어요/);
+  assert.doesNotMatch(r.stdout, /다른 폴더/);
 });
