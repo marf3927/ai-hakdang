@@ -92,7 +92,11 @@ Windows 에서 설치 직후 명령을 못 찾으면 터미널을 새로 열어�
    ```
 
 6. `me/progress.json` 의 `learner` 를 채우고 `updated` 에 오늘 날짜를 넣는다(형식은 `.agents/skills/hakdang/PROGRESS-FORMAT.md`). `next` 에 시작 단계의 첫 개념을 넣는다.
-7. `git add me && git commit -m "시작: 설문 결과" && git push`
+7. 커밋에 남을 작성자(git 이름 · 이메일)를 확인한다: `git config --global user.name` · `git config --global user.email`. 값이 있으면 그대로 둔다. 비어 있는 것이 있으면 "커밋에 남을 이름과 이메일을 GitHub 계정 것으로 설정할게요. 이메일은 GitHub 가 주는 비공개 주소라 실제 이메일은 드러나지 않아요" 라고 말하고 허락을 받은 뒤, 비어 있는 것만 채운다:
+   - `gh api user --jq '.id, .login, .name'` 으로 숫자 id · 아이디 · 이름을 읽는다
+   - 이름: `git config --global user.name "<이름, 없으면 아이디>"`
+   - 이메일: `git config --global user.email "<숫자 id>+<아이디>@users.noreply.github.com"`
+8. `git add me && git commit -m "시작: 설문 결과" && git push`
 
 ## 5. 마무리 — 설명보다 첫 수업
 
